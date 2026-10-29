@@ -1,0 +1,137 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Tathasta Weaves — Woven by Intelligence</title>
+<meta name="description" content="Tathasta Weaves is an AI-driven textile startup: generative weave design, smart fabric advisory and demand-aware production.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,600&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<header class="nav">
+  <a class="logo" href="#top"><span class="logo-mark"></span>Tathasta <em>Weaves</em></a>
+  <nav>
+    <a href="#studio">AI Studio</a>
+    <a href="#advisor">Advisor</a>
+    <a href="#how">How it works</a>
+    <a href="#collection">Collection</a>
+    <a href="#contact" class="btn small">Get in touch</a>
+  </nav>
+</header>
+
+<main id="top">
+  <section class="hero">
+    <canvas id="heroCanvas" aria-hidden="true"></canvas>
+    <div class="hero-copy">
+      <p class="eyebrow"><span class="dot"></span> AI-native textile house</p>
+      <h1>Every thread,<br><em>intelligently</em> woven.</h1>
+      <p class="lead">Tathasta Weaves pairs the craft of Indian handloom with machine intelligence — generating original patterns, matching fabrics to your needs, and producing only what is wanted.</p>
+      <div class="cta">
+        <a href="#studio" class="btn">Design a weave with AI</a>
+        <a href="#advisor" class="btn ghost">Ask the fabric advisor</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="stats">
+    <div><strong data-count="12000">0</strong><span>unique patterns generated</span></div>
+    <div><strong data-count="38">0</strong><span>% less unsold inventory</span></div>
+    <div><strong data-count="140">0</strong><span>artisan partners</span></div>
+    <div><strong data-count="24">0</strong><span>hours, idea to sample brief</span></div>
+  </section>
+
+  <section id="studio" class="section">
+    <div class="section-head">
+      <p class="eyebrow">Weave Studio</p>
+      <h2>Describe a mood. Watch it become cloth.</h2>
+      <p>Our generative engine turns a few words into a loom-ready pattern with a matching palette. Every result is unique.</p>
+    </div>
+    <div class="studio">
+      <div class="panel">
+        <label for="prompt">Your design prompt</label>
+        <textarea id="prompt" rows="3" placeholder="e.g. monsoon evening over indigo hills, calm and earthy">monsoon evening over indigo hills, calm and earthy</textarea>
+        <label for="weave">Weave structure</label>
+        <select id="weave">
+          <option value="twill">Twill</option>
+          <option value="herringbone">Herringbone</option>
+          <option value="plaid">Plaid / check</option>
+          <option value="ikat">Ikat-inspired</option>
+          <option value="plain">Plain weave</option>
+        </select>
+        <label for="density">Thread density <output id="densityOut">24</output></label>
+        <input type="range" id="density" min="10" max="48" value="24">
+        <div class="cta">
+          <button class="btn" id="generate">✦ Generate</button>
+          <button class="btn ghost" id="download">Download PNG</button>
+        </div>
+        <div class="palette" id="palette" aria-label="Generated palette"></div>
+        <p class="note" id="studioNote"></p>
+      </div>
+      <div class="canvas-wrap"><canvas id="studioCanvas" width="640" height="640"></canvas></div>
+    </div>
+  </section>
+
+  <section id="advisor" class="section alt">
+    <div class="section-head">
+      <p class="eyebrow">Fabric Advisor</p>
+      <h2>Tell us what you're making. We'll find the cloth.</h2>
+      <p>Ask in plain language — climate, use, budget, feel — and get a ranked recommendation from our catalogue.</p>
+    </div>
+    <div class="chat">
+      <div class="messages" id="messages" aria-live="polite"></div>
+      <div class="chips" id="chips">
+        <button>Breathable shirt for hot summers</button>
+        <button>Wedding saree, festive and rich</button>
+        <button>Durable upholstery for a sofa</button>
+        <button>Soft winter shawl</button>
+      </div>
+      <form id="chatForm">
+        <input id="chatInput" autocomplete="off" placeholder="What are you looking to make?" aria-label="Message">
+        <button class="btn" type="submit">Send</button>
+      </form>
+    </div>
+  </section>
+
+  <section id="how" class="section">
+    <div class="section-head">
+      <p class="eyebrow">How the AI works</p>
+      <h2>Intelligence at every stage of the loom.</h2>
+    </div>
+    <div class="steps">
+      <article><span>01</span><h3>Sense</h3><p>Trend, season and search signals are read to forecast what people will actually want to wear and live with.</p></article>
+      <article><span>02</span><h3>Design</h3><p>Generative models propose original motifs and palettes, which our weavers refine and approve.</p></article>
+      <article><span>03</span><h3>Plan</h3><p>Yarn, dye and loom time are scheduled to cut waste and keep small-batch production viable.</p></article>
+      <article><span>04</span><h3>Weave</h3><p>Artisans and looms produce the cloth. Every piece carries the human hand — and a traceable story.</p></article>
+    </div>
+  </section>
+
+  <section id="collection" class="section alt">
+    <div class="section-head">
+      <p class="eyebrow">Collection</p>
+      <h2>Signature fabrics</h2>
+    </div>
+    <div class="grid" id="grid"></div>
+  </section>
+
+  <section id="contact" class="section contact">
+    <h2>Let's weave something together.</h2>
+    <p>Brands, designers and boutiques — tell us what you need and we'll send an AI-assisted sample brief within a day.</p>
+    <form id="contactForm" class="contact-form">
+      <input required placeholder="Your name" aria-label="Name">
+      <input required type="email" placeholder="Email" aria-label="Email">
+      <textarea rows="3" placeholder="What are you looking for?" aria-label="Message"></textarea>
+      <button class="btn" type="submit">Request a brief</button>
+      <p class="note" id="contactNote"></p>
+    </form>
+  </section>
+</main>
+
+<footer>
+  <span class="logo"><span class="logo-mark"></span>Tathasta <em>Weaves</em></span>
+  <span>© <span id="year"></span> Tathasta Weaves. Woven by intelligence.</span>
+</footer>
+<script src="script.js"></script>
+</body>
+</html>
